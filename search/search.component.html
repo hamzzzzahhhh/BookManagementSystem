@@ -1,0 +1,30 @@
+<div class="search-container">
+    <h4>Search Books</h4>
+    <input type="text" placeholder="Search based on title, author name or ISBN" [formControl]="searchControl">
+  </div>
+  
+  <table class="books-table" *ngIf="books.length > 0">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Author Name</th>
+        <th>ISBN</th>
+        <th>Genre</th>
+        <th>Total Pages</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books">
+        <td>{{ book.title }}</td>
+        <td>{{ book.authorName }}</td>
+        <td>{{ book.isbn }}</td>
+        <td>{{ book.genre }}</td>
+        <td>{{ book.totalPages }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div *ngIf="books.length === 0">
+    <p>No books found.</p>
+  </div>
+  

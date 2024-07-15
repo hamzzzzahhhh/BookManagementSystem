@@ -1,0 +1,56 @@
+<div class="container">
+    <h3>Add/Edit Book</h3>
+    <form (ngSubmit)="onSubmit()" [formGroup]="inputForm">
+      <label for="id">ID:</label>
+      <input type="text" name="id" formControlName="id" required>
+
+      <label for="title">Title:</label>
+      <input type="text" name="title" formControlName="title" required>
+
+      <label for="author">Author:</label>
+      <input type="text" name="authorName" formControlName="authorName" required>
+
+      <label for="year">Publication Year:</label>
+      <input type="text" name="pubYear" formControlName="pubYear" required>
+
+      <label for="isbn">ISBN:</label>
+      <input type="text" name="isbn" formControlName="isbn" required>
+
+      <label for="genre">Genre:</label>
+      <input type="text" name="genre" formControlName="genre">
+
+      <div formArrayName="chapters">
+        <h4>Chapters</h4>
+        <div class="chapter-container" *ngFor="let chapter of chapters.controls; let i=index" [formGroupName]="i">
+          <div>
+            <label for="chapterTitle">Title:</label>
+            <input type="text" name="chapterTitle" formControlName="title">
+          </div>
+          <div>
+            <label for="chapterPageCount">Page Count:</label>
+            <input type="text" name="chapterPageCount" formControlName="pageCount">
+            <button type="button" (click)="removeChapter(i)">Delete</button>
+          </div>
+        </div>
+        <button type="button" (click)="addChapter()">Add Chapter</button>
+      </div>
+
+      <div formArrayName="tags">
+        <h4>Tags</h4>
+        <div class="tag-container" *ngFor="let tag of tags.controls; let i=index" [formGroupName]="i">
+          <div>
+            <label for="tag">Tag</label>
+            <input type="text" name="tag" formControlName="text">
+            <button type="button" (click)="removeTag(i)">Delete</button>
+          </div>
+        </div>
+        <button type="button" (click)="addTag()">Add Tag</button>
+      </div>
+
+      <label for="totalPages">Total Pages:</label>
+      <input type="text" name="totalPages" formControlName="totalPages">
+
+      <button type="button" [disabled]="!inputForm.valid" (click)="editBook()">Update Book</button>
+      <button type="submit" [disabled]="!inputForm.valid">Save Book</button>
+    </form>
+  </div>

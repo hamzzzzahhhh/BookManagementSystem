@@ -1,0 +1,42 @@
+table{
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table td{
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+table th{
+    background-color: green;
+    color: white;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+table tr:hover {
+    background-color: skyblue;
+}
+
+table tr:nth-child(even){
+    background-color: beige;
+}
+
+button{
+    margin-top: 10px;
+    background-color: skyblue;
+    color: white;
+    font-size: large;
+    font-weight: lighter;
+    border-radius: 5px;
+    width: 100px;
+    cursor: pointer;
+}
+
+#del{
+    text-align: center;
+}
