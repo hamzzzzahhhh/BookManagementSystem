@@ -32,7 +32,7 @@ export class SearchComponent implements OnInit {
 
   public searchBooks(searchTerm: string): void {
     if (searchTerm) {
-      this.http.get<Book[]>(`https://localhost:7070/api/Again/searchbooks?searchTerm=${searchTerm}`).subscribe({
+      this.http.get<Book[]>(`https://localhost:7070/api/Home/searchbooks?searchTerm=${searchTerm}`).subscribe({
         next: (response) => {
           this.books = response;
           console.log(response);
@@ -47,7 +47,7 @@ export class SearchComponent implements OnInit {
   }
 
   public getBooks(): void {
-    this.http.get<Book[]>('https://localhost:7070/api/Again/getbooks').subscribe({
+    this.http.get<Book[]>('https://localhost:7070/api/Home/getbooks').subscribe({
       next: (response) => {
         this.books = response;
         console.log(response);

@@ -36,7 +36,7 @@ export class DisplayBooksComponent {
 
   public getBooks(): void {
     let url = "";
-    this.http.get<Book[]>('https://localhost:7070/api/Again/getbooks').subscribe({
+    this.http.get<Book[]>('https://localhost:7070/api/Home/getbooks').subscribe({
       next: (response) => {
         this.books = response,
           console.log(response)
@@ -61,7 +61,7 @@ export class DisplayBooksComponent {
 
     console.log("in delemp");
 
-    const url = `https://localhost:7070/api/Again/deletebook?id=${id}`;
+    const url = `https://localhost:7070/api/Home/deletebook?id=${id}`;
 
     this.http.delete(url).subscribe({
       next: (response) => {

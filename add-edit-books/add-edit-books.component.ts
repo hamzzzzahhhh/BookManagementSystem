@@ -51,7 +51,7 @@ export class AddEditBooksComponent implements OnInit {
 
   public getBooks(): void {
     let url = "";
-    this.http.get<Book[]>('https://localhost:7070/api/Again/getbooks').subscribe({
+    this.http.get<Book[]>('https://localhost:7070/api/Home/getbooks').subscribe({
       next: (response) => {
         this.books = response,
           console.log(response)
@@ -126,7 +126,7 @@ export class AddEditBooksComponent implements OnInit {
         totalPages: this.inputForm.get('totalPages')?.value,
       };
 
-      this.http.post<Book>('https://localhost:7070/api/Again/addbook', newBook).subscribe({
+      this.http.post<Book>('https://localhost:7070/api/Home/addbook', newBook).subscribe({
         next: (response) => {
           console.log('Book Added', response);
           this.inputForm.reset();
@@ -217,7 +217,7 @@ export class AddEditBooksComponent implements OnInit {
         TotalPages: this.inputForm.value.totalPages
       }
 
-      this.http.put(`https://localhost:7070/api/Again/editbook?id=${id}`, updatedBook).subscribe({
+      this.http.put(`https://localhost:7070/api/Home/editbook?id=${id}`, updatedBook).subscribe({
         next: (response) => {
           console.log(response);
         },
